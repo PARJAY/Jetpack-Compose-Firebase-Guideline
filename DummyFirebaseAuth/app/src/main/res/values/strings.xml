@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Dummy Firebase Auth</string>
+    <string name="default_web_client_id">608371446284-m967ifoovvhbbhieeprig28ohmgsjocc.apps.googleusercontent.com</string>
+</resources>

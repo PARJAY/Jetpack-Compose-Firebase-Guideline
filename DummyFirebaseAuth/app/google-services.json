@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "608371446284",
+    "project_id": "nofwa-indonesia",
+    "storage_bucket": "nofwa-indonesia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608371446284:android:84b16952e3ba9ce9599429",
+        "android_client_info": {
+          "package_name": "com.example.dummyfirebaseauth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "608371446284-2ma72n680r5i46hlh7gedag9ubfkeb9i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dummyfirebaseauth",
+            "certificate_hash": "6a35f1258fe49aa846fc483253925074c522a43d"
+          }
+        },
+        {
+          "client_id": "608371446284-m967ifoovvhbbhieeprig28ohmgsjocc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACM14qLztu-dLdIPHiy4OwcBO24MILhgA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "608371446284-m967ifoovvhbbhieeprig28ohmgsjocc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
