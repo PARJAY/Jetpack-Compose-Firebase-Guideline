@@ -1,4 +1,4 @@
-package com.example.dummyfirebaseauth.ui.component.navigation
+package com.example.dummyfirebaseauth.ui.navigation
 
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -23,6 +23,7 @@ import com.example.dummyfirebaseauth.presentation.sign_in.GoogleAuthUiClient
 import com.example.dummyfirebaseauth.presentation.sign_in.SignInState
 import com.example.dummyfirebaseauth.presentation.sign_in.SignInViewModel
 import com.example.dummyfirebaseauth.presentation.user_list.UserListScreenViewModel
+import com.example.dummyfirebaseauth.ui.screen.GetPictureExampleScreen
 import com.example.dummyfirebaseauth.ui.screen.ProfileScreen
 import com.example.dummyfirebaseauth.ui.screen.SignInScreen
 import com.example.dummyfirebaseauth.ui.screen.UserListScreen
@@ -47,7 +48,7 @@ fun NavigationHost(
     val navController = rememberNavController()
 //    val navBackStackEntry by navController.currentBackStackEntryAsState()
 
-    NavHost(navController = navController, startDestination = "sign_in") {
+    NavHost(navController = navController, startDestination = Screen.SignIn.route) {
         composable(Screen.SignIn.route) {
             val viewModel = viewModel<SignInViewModel>()
             val state: SignInState by viewModel.state.collectAsStateWithLifecycle()
@@ -122,13 +123,7 @@ fun NavigationHost(
         }
 
         composable(Screen.GetPictureExampleScreen.route) {
-            val userListScreenVM: UserListScreenViewModel = viewModel(
-                factory = viewModelFactory { UserListScreenViewModel(MyApp.appModule.userRepositoryImpl) }
-            )
-            val userListScreenUiState = userListScreenVM.state.collectAsState().value
-            val userListScreenEffectFlow = userListScreenVM.effect
-
-            UserListScreen(userListScreenUiState, userListScreenEffectFlow, userListScreenVM::onEvent)
+            GetPictureExampleScreen()
         }
     }
 }

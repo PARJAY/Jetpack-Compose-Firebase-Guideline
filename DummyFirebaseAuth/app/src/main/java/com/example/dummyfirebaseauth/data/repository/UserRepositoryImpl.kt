@@ -13,7 +13,7 @@ import kotlinx.coroutines.tasks.await
 
 class UserRepositoryImpl(private val db : FirebaseFirestore) : UserRepository {
 
-    var listenerRegistration : ListenerRegistration? = null
+    private var listenerRegistration : ListenerRegistration? = null
 
     override suspend fun getUsers(callback: (FirebaseResult<List<UserModel>>) -> Unit) {
         val userModelSnapshots = mutableListOf<UserModel>()
@@ -42,6 +42,7 @@ class UserRepositoryImpl(private val db : FirebaseFirestore) : UserRepository {
         }
     }
 
+    // dipake kalau nggak pengen nerima data realtime lagi
     fun detachListener() {
         listenerRegistration?.remove()
         listenerRegistration = null

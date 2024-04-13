@@ -8,7 +8,6 @@ class MyApp: Application() {
 
     companion object {
         lateinit var appModule: AppModule
-        lateinit var application: Application
     }
 
     override fun onCreate() {

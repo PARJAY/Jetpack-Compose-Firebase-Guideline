@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.example.dummyfirebaseauth.presentation.sign_in.SignInState
+import com.example.dummyfirebaseauth.ui.navigation.Screen
 
 @Composable
 fun SignInScreen(
@@ -41,8 +42,12 @@ fun SignInScreen(
             Text(text = "Sign In")
         }
 
-        Button(onClick = { onNavigateTo("userList") }) {
+        Button(onClick = { onNavigateTo(Screen.UserList.route) }) {
             Text(text = "get firestore data")
+        }
+
+        Button(onClick = { onNavigateTo(Screen.GetPictureExampleScreen.route) }) {
+            Text(text = "get firebase storage file data")
         }
     }
 }

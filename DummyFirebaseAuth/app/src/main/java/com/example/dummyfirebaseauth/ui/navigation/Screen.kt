@@ -1,4 +1,4 @@
-package com.example.dummyfirebaseauth.ui.component.navigation
+package com.example.dummyfirebaseauth.ui.navigation
 
 sealed class Screen(val route: String) {
     object SignIn : Screen("SignIn")
