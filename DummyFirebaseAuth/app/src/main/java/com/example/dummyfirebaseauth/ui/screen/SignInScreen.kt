@@ -2,7 +2,6 @@ package com.example.dummyfirebaseauth.ui.screen
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -44,6 +43,14 @@ fun SignInScreen(
 
         Button(onClick = { onNavigateTo(Screen.UserList.route) }) {
             Text(text = "get firestore data")
+        }
+
+        Button(onClick = { onNavigateTo(Screen.LiveDataExample.route) }) {
+            Text(text = "get firestore live data")
+        }
+
+        Button(onClick = { onNavigateTo(Screen.MessageListScreen.route) }) {
+            Text(text = "To trial and error screen")
         }
 
         Button(onClick = { onNavigateTo(Screen.GetPictureExampleScreen.route) }) {

@@ -6,7 +6,7 @@ import com.google.firebase.firestore.firestore
 import com.google.firebase.storage.ktx.storage
 
 class AppModuleImpl: AppModule {
-    private val db = Firebase.firestore
+    override val db = Firebase.firestore
     override val storage = com.google.firebase.ktx.Firebase.storage("gs://nofwa-indonesia.appspot.com")
 
     override val userRepositoryImpl: UserRepositoryImpl by lazy {

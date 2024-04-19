@@ -5,6 +5,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.dummyfirebaseauth.data.model.UserModel
@@ -15,17 +18,21 @@ fun UserItem(
     onUpdateAction : (UserModel) -> Unit,
     onDeleteAction : (String) -> Unit
 ) {
-    Column (modifier = Modifier.padding(top = 8.dp)) {
-        Text(text = user.id)
-        Text(text = user.name)
-        Text(text = user.address)
-        Text(text = user.phone_number)
+    val userModel by remember {
+        mutableStateOf(user)
+    }
 
-        Button(onClick = { onUpdateAction(user) }) {
+    Column (modifier = Modifier.padding(top = 8.dp)) {
+        Text(text = userModel.id)
+        Text(text = userModel.name)
+        Text(text = userModel.address)
+        Text(text = userModel.phone_number)
+
+        Button(onClick = { onUpdateAction(userModel) }) {
             Text(text = "Edit")
         }
 
-        Button(onClick = { onDeleteAction(user.id) }) {
+        Button(onClick = { onDeleteAction(userModel.id) }) {
             Text(text = "Delete")
         }
     }

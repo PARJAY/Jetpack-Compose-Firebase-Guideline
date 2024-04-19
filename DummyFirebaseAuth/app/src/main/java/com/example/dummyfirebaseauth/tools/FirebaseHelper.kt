@@ -17,6 +17,7 @@ class FirebaseHelper {
                 phone_number = queryDocumentSnapshot.getString("phone_number") ?: ""
             )
         }
+
         fun getFileFromFirebaseStorage (
             fileReference : String,
             onSuccess: (Uri) -> Unit,

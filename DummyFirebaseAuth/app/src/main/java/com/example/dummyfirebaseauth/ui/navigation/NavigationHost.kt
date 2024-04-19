@@ -24,6 +24,8 @@ import com.example.dummyfirebaseauth.presentation.sign_in.SignInState
 import com.example.dummyfirebaseauth.presentation.sign_in.SignInViewModel
 import com.example.dummyfirebaseauth.presentation.user_list.UserListScreenViewModel
 import com.example.dummyfirebaseauth.ui.screen.GetPictureExampleScreen
+import com.example.dummyfirebaseauth.ui.screen.LiveDataExampleScreen
+import com.example.dummyfirebaseauth.ui.screen.MessageListScreen
 import com.example.dummyfirebaseauth.ui.screen.ProfileScreen
 import com.example.dummyfirebaseauth.ui.screen.SignInScreen
 import com.example.dummyfirebaseauth.ui.screen.UserListScreen
@@ -116,7 +118,7 @@ fun NavigationHost(
             val userListScreenVM: UserListScreenViewModel = viewModel(
                 factory = viewModelFactory { UserListScreenViewModel(MyApp.appModule.userRepositoryImpl) }
             )
-            val userListScreenUiState = userListScreenVM.state.collectAsState().value
+            val userListScreenUiState = userListScreenVM.state.collectAsStateWithLifecycle().value
             val userListScreenEffectFlow = userListScreenVM.effect
 
             UserListScreen(userListScreenUiState, userListScreenEffectFlow, userListScreenVM::onEvent)
@@ -125,5 +127,15 @@ fun NavigationHost(
         composable(Screen.GetPictureExampleScreen.route) {
             GetPictureExampleScreen()
         }
+
+        composable(Screen.LiveDataExample.route) {
+            LiveDataExampleScreen()
+        }
+
+        composable(Screen.MessageListScreen.route) {
+            MessageListScreen()
+        }
+
+
     }
 }

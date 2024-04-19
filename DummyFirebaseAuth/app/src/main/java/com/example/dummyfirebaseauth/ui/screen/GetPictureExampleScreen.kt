@@ -33,6 +33,7 @@ fun GetPictureExampleScreen() {
     val context = LocalContext.current
 
     var imageURI by remember { mutableStateOf<Uri>(Uri.EMPTY) }
+
     var selectedImageUri by remember { mutableStateOf<Uri?>(Uri.EMPTY) }
 
     getFileFromFirebaseStorage(
