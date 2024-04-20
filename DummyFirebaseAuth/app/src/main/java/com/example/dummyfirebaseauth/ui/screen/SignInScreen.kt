@@ -41,7 +41,7 @@ fun SignInScreen(
             Text(text = "Sign In")
         }
 
-        Button(onClick = { onNavigateTo(Screen.UserList.route) }) {
+        Button(onClick = { onNavigateTo(Screen.UserListScreen.route) }) {
             Text(text = "get firestore data")
         }
 
@@ -55,6 +55,10 @@ fun SignInScreen(
 
         Button(onClick = { onNavigateTo(Screen.GetPictureExampleScreen.route) }) {
             Text(text = "get firebase storage file data")
+        }
+
+        Button(onClick = { onNavigateTo(Screen.MapsScreen.route) }) {
+            Text(text = "to maps screen")
         }
     }
 }

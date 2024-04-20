@@ -7,7 +7,6 @@ import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.LifecycleOwner
@@ -25,6 +24,8 @@ import com.example.dummyfirebaseauth.presentation.sign_in.SignInViewModel
 import com.example.dummyfirebaseauth.presentation.user_list.UserListScreenViewModel
 import com.example.dummyfirebaseauth.ui.screen.GetPictureExampleScreen
 import com.example.dummyfirebaseauth.ui.screen.LiveDataExampleScreen
+import com.example.dummyfirebaseauth.ui.screen.LocationGpsScreen
+import com.example.dummyfirebaseauth.ui.screen.MapsScreen
 import com.example.dummyfirebaseauth.ui.screen.MessageListScreen
 import com.example.dummyfirebaseauth.ui.screen.ProfileScreen
 import com.example.dummyfirebaseauth.ui.screen.SignInScreen
@@ -50,8 +51,8 @@ fun NavigationHost(
     val navController = rememberNavController()
 //    val navBackStackEntry by navController.currentBackStackEntryAsState()
 
-    NavHost(navController = navController, startDestination = Screen.SignIn.route) {
-        composable(Screen.SignIn.route) {
+    NavHost(navController = navController, startDestination = Screen.SignInScreen.route) {
+        composable(Screen.SignInScreen.route) {
             val viewModel = viewModel<SignInViewModel>()
             val state: SignInState by viewModel.state.collectAsStateWithLifecycle()
 
@@ -77,7 +78,7 @@ fun NavigationHost(
             LaunchedEffect(key1 = state.isSignInSuccessful) {
                 if (state.isSignInSuccessful) {
                     Toast.makeText(context, "Sign in Success", Toast.LENGTH_LONG).show()
-                    navController.navigate(Screen.Profile.route)
+                    navController.navigate(Screen.ProfileScreen.route)
                     viewModel.resetState()
                 }
             }
@@ -100,7 +101,12 @@ fun NavigationHost(
             )
         }
 
-        composable(Screen.Profile.route) {
+
+        composable(Screen.LocationGpsScreen.route) {
+            LocationGpsScreen()
+        }
+
+        composable(Screen.ProfileScreen.route) {
             ProfileScreen (
                 userData = googleAuthUiClient.getSignedInUser(),
                 onSignOut = {
@@ -114,7 +120,7 @@ fun NavigationHost(
             )
         }
 
-        composable(Screen.UserList.route) {
+        composable(Screen.UserListScreen.route) {
             val userListScreenVM: UserListScreenViewModel = viewModel(
                 factory = viewModelFactory { UserListScreenViewModel(MyApp.appModule.userRepositoryImpl) }
             )
@@ -136,6 +142,8 @@ fun NavigationHost(
             MessageListScreen()
         }
 
-
+        composable(Screen.MapsScreen.route) {
+            MapsScreen()
+        }
     }
 }
