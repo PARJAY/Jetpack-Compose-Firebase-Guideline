@@ -5,6 +5,8 @@ sealed class Screen(val route: String) {
     object ProfileScreen : Screen("ProfileScreen")
     object MapsScreen : Screen("MapsScreen")
     object LocationGpsScreen : Screen("LocationGpsScreen")
+    object TrackUserLocationScreen : Screen("TrackUserLocationScreen")
+
     object UserListScreen : Screen("UserListScreen")
 
     object LiveDataExample : Screen("LiveDataExample")

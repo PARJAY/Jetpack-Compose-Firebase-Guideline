@@ -25,6 +25,8 @@ class MainActivity : ComponentActivity() {
                 ) {
                     NavigationHost(lifecycleOwner = this)
                 }
+
+
             }
         }
     }

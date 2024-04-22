@@ -29,6 +29,7 @@ import com.example.dummyfirebaseauth.ui.screen.MapsScreen
 import com.example.dummyfirebaseauth.ui.screen.MessageListScreen
 import com.example.dummyfirebaseauth.ui.screen.ProfileScreen
 import com.example.dummyfirebaseauth.ui.screen.SignInScreen
+import com.example.dummyfirebaseauth.ui.screen.TrackUserLocationScreen
 import com.example.dummyfirebaseauth.ui.screen.UserListScreen
 import com.google.android.gms.auth.api.identity.Identity
 import kotlinx.coroutines.launch
@@ -58,7 +59,7 @@ fun NavigationHost(
 
             LaunchedEffect(key1 = Unit) {
                 if (googleAuthUiClient.getSignedInUser() != null)
-                    navController.navigate("profile")
+                    navController.navigate(Screen.ProfileScreen.route)
             }
 
             val launcher = rememberLauncherForActivityResult(
@@ -101,6 +102,14 @@ fun NavigationHost(
             )
         }
 
+
+        composable(Screen.TrackUserLocationScreen.route) {
+            TrackUserLocationScreen(
+                onPermissionGranted = {},
+                onPermissionDenied = {},
+                onPermissionsRevoked = {}
+            )
+        }
 
         composable(Screen.LocationGpsScreen.route) {
             LocationGpsScreen()

@@ -3,9 +3,6 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
-
-//    id("kotlin-kapt")
-//    id("kotlin-parcelize")
 }
 
 android {
@@ -92,29 +89,29 @@ dependencies {
 
     // Compose dependencies
     implementation("androidx.compose.material:material-icons-extended:1.6.6")
-    implementation("com.google.maps.android:maps-compose:1.0.0")
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
     implementation("androidx.navigation:navigation-compose:2.7.7")
     implementation("io.coil-kt:coil-compose:2.2.2")
 
-    // Firebase
-    // When using the Firebase BoM, don't specify versions in Firebase dependencies
-    implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
-
+    // Firebase When using the Firebase BoM, don't specify versions in Firebase dependencies
+    implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.google.firebase:firebase-storage-ktx")
-
     implementation("com.google.android.gms:play-services-auth:21.1.0")
-    // Firebase
 
     // Location Services
     implementation("com.google.android.gms:play-services-location:21.2.0")
-
-    // maps?
+    implementation("com.google.maps.android:maps-compose:2.14.0")
     implementation("com.google.android.gms:play-services-maps:18.2.0")
 
+    // jetpack compose permission
+    implementation("com.google.accompanist:accompanist-permissions:0.35.0-alpha")
+
+    implementation("com.google.android.libraries.places:places:3.4.0")
+
+    implementation("androidx.appcompat:appcompat:1.6.1")
 }

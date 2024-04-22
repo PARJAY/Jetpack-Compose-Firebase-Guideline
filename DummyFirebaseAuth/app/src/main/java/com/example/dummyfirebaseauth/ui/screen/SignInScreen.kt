@@ -53,6 +53,10 @@ fun SignInScreen(
             Text(text = "To trial and error screen")
         }
 
+        Button(onClick = { onNavigateTo(Screen.TrackUserLocationScreen.route) }) {
+            Text(text = "To Track User Location Screen")
+        }
+
         Button(onClick = { onNavigateTo(Screen.GetPictureExampleScreen.route) }) {
             Text(text = "get firebase storage file data")
         }

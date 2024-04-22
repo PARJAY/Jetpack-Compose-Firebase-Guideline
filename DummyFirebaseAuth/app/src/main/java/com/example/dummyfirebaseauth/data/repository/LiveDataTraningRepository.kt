@@ -1,7 +1,6 @@
 package com.example.dummyfirebaseauth.data.repository
 
 import android.util.Log
-import com.example.dummyfirebaseauth.MyApp
 import com.example.dummyfirebaseauth.common.INTERNET_ISSUE
 import com.example.dummyfirebaseauth.common.LIVEDATA_TRAINING
 import com.example.dummyfirebaseauth.ui.screen.LiveDataTrainingModel
